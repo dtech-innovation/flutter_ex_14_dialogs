@@ -7,9 +7,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
-    );
+    return const MaterialApp(home: HomePage());
   }
 }
 
@@ -31,31 +29,12 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.green,
       ),
       body: Center(
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(0),
-            ),
-          ),
-          onPressed: () {
-            // Show an alert dialog when the button is pressed
-            showDialog(
-              context: context,
-              builder: (ctx) => AlertDialog(
-                title: const Text("Alert Dialog Box"),
-                content: const Text("You have raised an Alert Dialog Box"),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(ctx).pop();
-                    },
-                    child: const Text("okay"),
-                  ),
-                ],
-              ),
-            );
-          },
-          child: const Text("Show alert Dialog box"),
+        child: SimpleDialog(
+          title: const Text('GeeksforGeeks'),
+          children: <Widget>[
+            SimpleDialogOption(onPressed: () {}, child: const Text('Option 1')),
+            SimpleDialogOption(onPressed: () {}, child: const Text('Option 2')),
+          ],
         ),
       ),
     );
